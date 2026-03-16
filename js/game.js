@@ -70,7 +70,12 @@ function generate() {
   let counter = 0;
   let hints = [];
 
-  hin.forEach ((val, i) => {if (val === "1") { hints.push(counter); counter++;} else { hints.push(0) }});
+  for (let i = 0; i < hin.length; i++) {
+    if (hin[i] === "1") { 
+      hints.push(counter); 
+      counter++;
+    } else { hints.push(0) }
+  }
 
   k = 0;
   for (let i = 0; i < lin; i++) {
