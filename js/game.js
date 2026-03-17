@@ -65,8 +65,8 @@ function generate() {
   }
   console.log(states);
 
-  //Hint generation
-    //Find enabled hints
+//Hint generation
+  //Find enabled hints
   let hints = [];
 
   for (let i = 0; i < hin.length; i++) {
@@ -121,13 +121,25 @@ function generate() {
       
       document.querySelector("#" + ids[k] + " p").innerHTML = "There" + not + " explosive " + names[emojis.indexOf(selected)] + ".";
     }
+    if (random === 2) {
+      negation = -1;
+      random = Math.random();
+      if (states[i] === "bomb") { negation *= -1 } 
+      if (random < 0.5) {
+        random = Math.floor(Math.random()*lin);
+        for (let l = random - (random % col), l < col, l++) {if (states[l] === "bomb") { negation = 1 }}
+      } else {
+        random = Math.floor(Math.random()*col);
+        for (let l = random - (random % lin), l < lin, l++) {if (states[l] === "bomb") { negation = 1 }}        
+      }
+    }
     k++;
   }
   }
   
 //Update info labels
   document.title = "Boxpect - " + nam;
-  target = total-bmb;
+  target = total - bmb;
   remain = 0;
   document.getElementById("remaining").innerHTML = bmb;
   document.getElementById("counter").innerHTML = 0;
