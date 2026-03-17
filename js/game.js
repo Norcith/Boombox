@@ -150,6 +150,7 @@ function generate() {
   document.getElementById("counterMax").innerHTML = target;
   
   isPlaying = 0;
+  updateBest(false);
   timer = setInterval(updateTimer,1000);
 }
 
@@ -198,7 +199,10 @@ function updateTimer() {
       seconds.innerHTML = "00"
   }
     else { seconds.innerHTML = String((Number(seconds.innerHTML) + 1)).padStart(2,"0") }
-  } else if (Number(seconds.innerHTML) > 0) { clearInterval(timer) }
+  } else if (Number(seconds.innerHTML) > 0) { 
+    clearInterval(timer);
+    updateBest(true)
+  }
 }
 
 function revealBomb(element) {
@@ -213,3 +217,19 @@ function setOverlay(title,text) {
   overlay.querySelector("h1").innerHTML = title
   overlay.querySelector("p").innerHTML = text
   }
+
+  function updateBest(replace) {
+    let currentMins = document.getElementById("timerMinutes").innerHTML;
+    let currentSecs = document.getElementById("timerSeconds").innerHTML;
+    let getMins = `bestMinutes${nam}`;
+    let getSecs = `bestSeconds${nam}`;
+
+    if (currentMins >= localStorage.getItem(getMins) && currentSecs > localStorage.getItem(getSecs) && ["Easy","Normal","Hard"].includes(nam)) {
+      if (replace) {  
+        localStorage.setItem(getMins,currentMins);
+        localStorage.setItem(getSecs,currentSecs);
+    }
+      document.getElementById("bestMinutes").innerHTML = localStorage.getItem(getMins);
+      document.getElementById("bestSeconds").innerHTML = localStorage.getItem(getSecs);
+  }
+}
