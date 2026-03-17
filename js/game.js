@@ -129,7 +129,7 @@ function generate() {
         var2 = Math.floor(selected / col);
       } else {
         var1 = "row";
-        var2 = Math.floor(selected / row);
+        var2 = Math.floor(selected / lin);
       }
 
       if (negation === -1) {not = "are no bombs"} else {not = "is at least 1 bomb"}
