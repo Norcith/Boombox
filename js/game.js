@@ -134,7 +134,7 @@ function generate() {
       }
 
       if (negation === -1) {not = "are no bombs"} else {not = "is at least 1 bomb"}
-      tag.innerHTML = "There " + not + " in " + var1 + " n°" + var2
+      tag.innerHTML = "There " + not + " in " + var1 + " n°" + (var2 + 1)
 
     }
     k++;
