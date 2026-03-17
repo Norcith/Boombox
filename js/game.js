@@ -182,6 +182,7 @@ function iconClick(element) {
       isPlaying = 3;
       document.getElementById("audioWin").play();
       setTimeout(() => setOverlay("You win","Good job! You found all the non-bomb packages"), 100)
+      updateBest(true)
     }
   }
   element.querySelector("p").style.textDecoration = "underline DimGray";
@@ -202,7 +203,6 @@ function updateTimer() {
     else { seconds.innerHTML = String((Number(seconds.innerHTML) + 1)).padStart(2,"0") }
   } else if (Number(seconds.innerHTML) > 0) { 
     clearInterval(timer);
-    updateBest(true)
   }
 }
 
@@ -222,8 +222,8 @@ function setOverlay(title,text) {
   function updateBest(replace) {
     let currentMins = document.getElementById("timerMinutes").innerHTML;
     let currentSecs = document.getElementById("timerSeconds").innerHTML;
-    let getMins = `bestMinutes${nam}`;
-    let getSecs = `bestSeconds${nam}`;
+    let getMins = localStorage.getItem(`bestMinutes${nam}`);
+    let getSecs = localStorage.getItem(`bestSeconds${nam}`);
 
     if (currentMins >= localStorage.getItem(getMins) && currentSecs > localStorage.getItem(getSecs) && ["Easy","Normal","Hard"].includes(nam)) {
       if (replace) {  
