@@ -7,7 +7,6 @@ let timer;
 
 window.addEventListener("beforeunload", (leave) => {
   if (isPlaying === 1) {
-    console.log(isPlaying )
     leave.preventDefault();
     leave.returnValue = "";
   }
@@ -63,7 +62,6 @@ function generate() {
     states[ids.indexOf(packages[ind])] = "bomb";
     packages.splice(ind, 1);
   }
-  console.log(states);
 
 //Hint generation
   //Find enabled hints
@@ -103,7 +101,6 @@ function generate() {
       if (states[selected[1]] === "bomb") {negation = 1} else {negation = -1}
       if (states[k] === "bomb")           {negation *= -1}
       if (negation === -1)                {not = "not"}  else {not = ""}
-      console.log(String(selected[0]) + " (matches '" + expressions[0][selected[0]] + "')");
       
       document.querySelector("#" + ids[k] + " p").innerHTML = "The box " + expressions[0][selected[0]] + " is " + not + " a bomb.";
     }
