@@ -235,6 +235,8 @@ function setOverlay(title,text) {
         getSecs = currentSecs;
     }
   }
+  if (getMins !== null) {
     document.getElementById("bestMinutes").innerHTML = getMins;
     document.getElementById("bestSeconds").innerHTML = getSecs;
+  }
 }
