@@ -15,10 +15,10 @@ window.addEventListener("beforeunload", (leave) => {
 
 function generate() {
   const params = new URLSearchParams(window.location.search);
-  const col = params.get("columns");
-  const lin = params.get("rows");
-  const bmb = params.get("bombs");
-  const emo = params.get("emojis");
+  const col = Number(params.get("columns"));
+  const lin = Number(params.get("rows"));
+  const bmb = Number(params.get("bombs"));
+  const emo = Number(params.get("emojis"));
   nam = params.get("name");
   const hin = params.get("hints");
   
