@@ -151,7 +151,7 @@ function generate() {
   document.getElementById("counterMax").innerHTML = target;
   
   isPlaying = 0;
-  updateBest(false);
+/*  updateBest(false); */
   timer = setInterval(updateTimer,1000);
 }
 
@@ -182,7 +182,7 @@ function iconClick(element) {
       isPlaying = 3;
       document.getElementById("audioWin").play();
       setTimeout(() => setOverlay("You win","Good job! You found all the non-bomb packages"), 100)
-      updateBest(true)
+/*      updateBest(true) */
     }
   }
   element.querySelector("p").style.textDecoration = "underline DimGray";
@@ -219,7 +219,7 @@ function setOverlay(title,text) {
   overlay.querySelector("p").innerHTML = text
   }
 
-  function updateBest(replace) {
+/*   function updateBest(replace) {
     let currentMins = document.getElementById("timerMinutes").innerHTML;
     let currentSecs = document.getElementById("timerSeconds").innerHTML;
     let minsKey = `bestMinutes${nam}`;
@@ -240,3 +240,4 @@ function setOverlay(title,text) {
     document.getElementById("bestSeconds").innerHTML = getSecs;
   }
 }
+ */
