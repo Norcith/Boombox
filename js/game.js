@@ -222,13 +222,17 @@ function setOverlay(title,text) {
   function updateBest(replace) {
     let currentMins = document.getElementById("timerMinutes").innerHTML;
     let currentSecs = document.getElementById("timerSeconds").innerHTML;
-    let getMins = localStorage.getItem(`bestMinutes${nam}`);
-    let getSecs = localStorage.getItem(`bestSeconds${nam}`);
+    let minsKey = `bestMinutes${nam}`;
+    let secsKey = `bestSeconds${nam}`;
+    let getMins = localStorage.getItem(minsKey);
+    let getSecs = localStorage.getItem(secsKey);
 
     if (currentMins >= getMins && currentSecs > getSecs && ["Easy","Normal","Hard"].includes(nam)) {
       if (replace) {  
-        localStorage.setItem(getMins,currentMins);
-        localStorage.setItem(getSecs,currentSecs);
+        localStorage.setItem(minsKey,currentMins);
+        localStorage.setItem(secsKey,currentSecs);
+        getMins = currentMins;
+        getSecs = currentSecs
     }
       document.getElementById("bestMinutes").innerHTML = getMins;
       document.getElementById("bestSeconds").innerHTML = getSecs;
