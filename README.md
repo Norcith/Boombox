@@ -1,3 +1,2 @@
 # Boxpect
-A simple javascript puzzle
-This is my first javascript project, I'm too lazy to write a README as of right now.
+A simple javascript puzzle I made over a weekend to try and learn javascript
